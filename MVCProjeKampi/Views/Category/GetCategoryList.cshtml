@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+@{
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="container m-3">
+
+</div>
+<div class="container-lg">
+    <h2 class="mb-3">Kategori Listesi</h2>
+    <table class="table table-hover table-striped table-bordered shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Ad</th>
+                <th class="text-center">Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kategori in Model)
+            {
+                <tr>
+                    <td>@kategori.CategoryID</td>
+                    <td><strong>@kategori.CategoryName</strong></td>
+                    <td class="text-center">
+                        @if (kategori.CategoryStatus)
+                        {
+                            <span class="text-success">Aktif</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">Pasif</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Category/AddCategory" class="btn btn-success">Yeni Kategori</a>
+</div>

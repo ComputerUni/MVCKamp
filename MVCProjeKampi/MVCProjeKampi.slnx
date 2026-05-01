@@ -1,6 +1,6 @@
 <Solution>
-  <Project Path="../BusinessLayer/BusinessLayer.csproj" />
-  <Project Path="../DataAccessLayer/DataAccessLayer.csproj" />
-  <Project Path="../EntityLayer/EntityLayer.csproj" />
-  <Project Path="MVCProjeKampi.csproj" />
+  <Project Path="../BusinessLayer/BusinessLayer.csproj" Id="282c5893-376f-4335-9e77-a8fada51bcf6" />
+  <Project Path="../DataAccessLayer/DataAccessLayer.csproj" Id="aa3364c3-44c5-4f0d-acb7-c6b2a8f7e796" />
+  <Project Path="../EntityLayer/EntityLayer.csproj" Id="2ddcd88b-b70b-4c77-81aa-09d918450181" />
+  <Project Path="MVCProjeKampi.csproj" Id="5f8c5a0f-f8ec-449d-9572-4e8f37f61ccb" />
 </Solution>

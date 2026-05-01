@@ -1,6 +1,0 @@
-C:\Users\BURHAN\Desktop\MVCKamp\BusinessLayer\bin\Debug\BusinessLayer.dll
-C:\Users\BURHAN\Desktop\MVCKamp\BusinessLayer\bin\Debug\BusinessLayer.pdb
-C:\Users\BURHAN\Desktop\MVCKamp\BusinessLayer\obj\Debug\BusinessLayer.csproj.AssemblyReference.cache
-C:\Users\BURHAN\Desktop\MVCKamp\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
-C:\Users\BURHAN\Desktop\MVCKamp\BusinessLayer\obj\Debug\BusinessLayer.dll
-C:\Users\BURHAN\Desktop\MVCKamp\BusinessLayer\obj\Debug\BusinessLayer.pdb
