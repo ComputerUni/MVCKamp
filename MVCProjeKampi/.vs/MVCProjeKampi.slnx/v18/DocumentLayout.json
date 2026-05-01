@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\MVCProjeKampi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5F8C5A0F-F8EC-449D-9572-4E8F37F61CCB}|MVCProjeKampi.csproj|c:\\users\\burhan\\desktop\\mvckamp\\mvcprojekampi\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F8C5A0F-F8EC-449D-9572-4E8F37F61CCB}|MVCProjeKampi.csproj|solutionrelative:views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F8C5A0F-F8EC-449D-9572-4E8F37F61CCB}|MVCProjeKampi.csproj|c:\\users\\burhan\\desktop\\mvckamp\\mvcprojekampi\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F8C5A0F-F8EC-449D-9572-4E8F37F61CCB}|MVCProjeKampi.csproj|solutionrelative:controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDCD88B-B70B-4C77-81AA-09D918450181}|..\\EntityLayer\\EntityLayer.csproj|c:\\users\\burhan\\desktop\\mvckamp\\entitylayer\\concrete\\writer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDCD88B-B70B-4C77-81AA-09D918450181}|..\\EntityLayer\\EntityLayer.csproj|c:\\users\\burhan\\desktop\\mvckamp\\entitylayer\\concrete\\heading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDCD88B-B70B-4C77-81AA-09D918450181}|..\\EntityLayer\\EntityLayer.csproj|c:\\users\\burhan\\desktop\\mvckamp\\entitylayer\\concrete\\content.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA3364C3-44C5-4F0D-ACB7-C6B2A8F7E796}|..\\DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\burhan\\desktop\\mvckamp\\dataaccesslayer\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\MVCProjeKampi\\Views\\Category\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Category\\Index.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\MVCProjeKampi\\Views\\Category\\Index.cshtml",
+              "RelativeToolTip": "Views\\Category\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-01T16:37:33.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\MVCProjeKampi\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\MVCProjeKampi\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "Controllers\\CategoryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T16:37:20.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Writer.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\EntityLayer\\Concrete\\Writer.cs",
+              "RelativeDocumentMoniker": "..\\EntityLayer\\Concrete\\Writer.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\EntityLayer\\Concrete\\Writer.cs",
+              "RelativeToolTip": "..\\EntityLayer\\Concrete\\Writer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T16:26:13.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Heading.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\EntityLayer\\Concrete\\Heading.cs",
+              "RelativeDocumentMoniker": "..\\EntityLayer\\Concrete\\Heading.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\EntityLayer\\Concrete\\Heading.cs",
+              "RelativeToolTip": "..\\EntityLayer\\Concrete\\Heading.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T16:25:59.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Content.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\EntityLayer\\Concrete\\Content.cs",
+              "RelativeDocumentMoniker": "..\\EntityLayer\\Concrete\\Content.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\EntityLayer\\Concrete\\Content.cs",
+              "RelativeToolTip": "..\\EntityLayer\\Concrete\\Content.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T16:25:45.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\DataAccessLayer\\Migrations\\Configuration.cs",
+              "RelativeDocumentMoniker": "..\\DataAccessLayer\\Migrations\\Configuration.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\MVCKamp\\DataAccessLayer\\Migrations\\Configuration.cs",
+              "RelativeToolTip": "..\\DataAccessLayer\\Migrations\\Configuration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T16:19:37.605Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

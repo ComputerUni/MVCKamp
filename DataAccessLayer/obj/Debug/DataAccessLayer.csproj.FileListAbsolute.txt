@@ -1,0 +1,15 @@
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\bin\Debug\EntityLayer.dll
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\bin\Debug\EntityLayer.pdb
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\bin\Debug\EntityLayer.dll.config
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\obj\Debug\DataAcce.E67BD773.Up2Date
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\BURHAN\Desktop\MVCKamp\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
