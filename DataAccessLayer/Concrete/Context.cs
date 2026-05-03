@@ -9,8 +9,12 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete
 {
-    internal class Context: DbContext
+    public class Context: DbContext
     {
+        public Context() : base("Context")
+        {
+        }
+
         public DbSet<About> Abouts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Contact> Contacts { get; set; }

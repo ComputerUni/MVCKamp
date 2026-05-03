@@ -1,0 +1,112 @@
+﻿@model EntityLayer.Concrete.Writer
+
+@{
+    ViewBag.Title = "AddWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-dark text-white text-center py-3">
+                    <h3 class="font-weight-light my-1"><i class="fas fa-user-plus mr-2"></i>Yeni Yazar Kaydı</h3>
+                </div>
+                <div class="card-body p-4">
+                    @using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post))
+                    {
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.Label("Yazar Adı", new { @class = "small mb-1 font-weight-bold" })
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control", placeholder = "Adını giriniz..." })
+                                    </div>
+                                    @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger small" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.Label("Yazar Soyadı", new { @class = "small mb-1 font-weight-bold" })
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                                        </div>
+                                        @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control", placeholder = "Soyadını giriniz..." })
+                                    </div>
+                                    @Html.ValidationMessageFor(x => x.WriterSurname, "", new { @class = "text-danger small" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Yazar Mail", new { @class = "small mb-1 font-weight-bold" })
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control", type = "email", placeholder = "Örn: yazar@mail.com" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger small" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Yazar Şifresi", new { @class = "small mb-1 font-weight-bold" })
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                @Html.PasswordFor(x => x.WriterPassword, new { @class = "form-control", placeholder = "Güçlü bir şifre belirleyin" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger small" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Yazar Görsel Linki", new { @class = "small mb-1 font-weight-bold" })
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-image"></i></span>
+                                </div>
+                                @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control", placeholder = "Görsel URL'sini yapıştırın" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger small" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Yazar Unvan", new { @class = "small mb-1 font-weight-bold" })
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
+                                </div>
+                                @Html.TextAreaFor(x => x.WriterTitle, new { @class = "form-control", rows = "3", placeholder = "Yazar unvanını giriniz..." })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.WriterTitle, "", new { @class = "text-danger small" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Yazar Hakkında", new { @class = "small mb-1 font-weight-bold" })
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
+                                </div>
+                                @Html.TextAreaFor(x => x.WriterAbout, new { @class = "form-control", rows = "3", placeholder = "Yazar hakkında kısa bilgi..." })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-danger small" })
+                        </div>
+
+                        <div class="form-group mt-4 mb-0">
+                            <button class="btn btn-primary btn-block py-2 font-weight-bold shadow-sm">
+                                <i class="fas fa-save mr-2"></i>Yazarı Sisteme Kaydet
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

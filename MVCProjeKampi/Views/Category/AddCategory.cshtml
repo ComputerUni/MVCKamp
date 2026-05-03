@@ -1,18 +1,36 @@
-﻿
+﻿@model EntityLayer.Concrete.Category
+
 @{
     Layout = null;
 }
 
+
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
-<div class="container mt-4">
-    <h3>Yeni Kategori Ekleme Sayfası</h3>
-    <div class="col md-6">
-        <form class="form-group border p-4 shadow rounded bg-light" method="post">
-            <input type="text" placeholder="Kategori Adı" name="CategoryName" class="form-control mb-3" />
-            <input type="text" placeholder="Açıklama" name="CategoryDescription" class="form-control mb-3" />
-            <button class="btn btn-success mt-3">Kategori Ekle</button>
-        </form>
+@using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+{
+    <div class="container mt-5">
+        <div class="form-group">
+            <h3>Yeni Kategori Ekleme Sayfası</h3>
+            <br />
+            <div class="container mb-3">
+                @Html.Label("Kategori Adı", new { @class = "form-label" })
+                @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", placeholder = "Kategori adını giriniz..." })
+                @Html.ValidationMessageFor(x => x.CategoryName)
+            </div>
+            <div class="container mb-3">
+                @Html.Label("Açıklamayı Yazınız", new { @class = "form-label" })
+                @Html.TextBoxFor(x => x.CategoryDescription, new { @class = "form-control", placeholder = "Kategori açıklamasını giriniz..." })
+                @Html.ValidationMessageFor(x => x.CategoryDescription)
+            </div>
+            <div class="container">
+                <button class="btn btn-success mt-1 shadow-sm">
+                    <i class="bi bi-save"></i> Kaydet
+                </button>
+            </div>
+
+        </div>
     </div>
-</div>
+}
+
 

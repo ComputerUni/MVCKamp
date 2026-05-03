@@ -1,0 +1,252 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<style>
+
+        .container {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        h3 {
+            font-weight: 700;
+            color: #1a1d23;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .table {
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            border: none !important;
+            background-color: transparent;
+        }
+
+
+            .table thead th {
+                background-color: transparent !important;
+                color: #64748b !important;
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                border: none !important;
+                padding: 12px 20px;
+            }
+
+            .table tbody tr {
+                background-color: #ffffff !important;
+                transition: all 0.2s ease;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            }
+
+            .table tbody td {
+                padding: 16px 20px;
+                vertical-align: middle;
+                color: #334155;
+                border: none !important;
+                font-size: 0.95rem;
+            }
+
+            .table tbody tr td:first-child {
+                border-radius: 10px 0 0 10px;
+                font-weight: 600;
+                color: #6366f1;
+            }
+
+            .table tbody tr td:last-child {
+                border-radius: 0 10px 10px 0;
+            }
+
+
+        .table-hover tbody tr:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            background-color: #fcfcfc !important;
+        }
+
+
+        .table td:last-child {
+            font-weight: 500;
+            color: #10b981;
+        }
+
+
+        .shadow-sm {
+            box-shadow: none !important;
+        }
+    </style>
+
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <div class="container mt-4">
+        <h3>Başlıklar</h3>
+        <table class="table table-bordered shadow-sm table-hover ">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Başlık</th>
+                    <th>Kategori</th>
+                    <th class="text-center">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var baslik in Model)
+                {
+                    <tr>
+                        <td>@baslik.HeadingID</td>
+                        <td><strong>@baslik.HeadingName</strong></td>
+                        <td>@baslik.Category.CategoryName</td>
+                        <td class="align-middle">
+                            <div class="d-flex align-items-center justify-content-center gap-2">
+                                <a href="#" class="btn btn-sm btn-light text-primary border-0 shadow-sm me-2" title="Güncelle">
+                                    <i class="fa fa-pencil"></i> <span class="ms-1 d-none d-md-inline">Güncelle</span>
+                                </a>
+
+                                <a href="#" class="btn btn-sm btn-light text-danger border-0 shadow-sm me-2" title="Sil">
+                                    <i class="fa fa-remove"></i> <span class="ms-1 d-none d-md-inline">Sil</span>
+                                </a>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a href="/Heading/AddHeading/" class="btn btn-outline-secondary">Yeni Başlık</a>
+    </div>*@
+@{ string color = "";}
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Başlık İşlemleri</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                Başlık Adı
+                            </th>
+                            <th style="width: 30%">
+                                Oluşturan Yazar
+                            </th>
+                            <th style="width: 8%" class="text-center">
+                                Kategori
+                            </th>
+                            <th style="width: 20%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var irem in Model)
+                        {
+                            if (@irem.Category.CategoryName == "Tiyatro")
+                            {
+                                color = "badge badge-warning";
+                            }
+                            if (irem.Category.CategoryName == "Spor")
+                            {
+                                color = "badge badge-success";
+                            }
+                            if (irem.Category.CategoryName == "Kitap")
+                            {
+                                color = "badge badge-danger";
+                            }
+                            if (irem.Category.CategoryName == "Eğitim")
+                            {
+                                color = "badge badge-secondary";
+                            }
+                            if (irem.Category.CategoryName == "Film")
+                            {
+                                color = "badge badge-info";
+                            }
+                            if (irem.Category.CategoryName == "Dizi")
+                            {
+                                color = "badge badge-primary";
+                            }
+                            if (irem.Category.CategoryName == "Sosyal")
+                            {
+                                color = "badge badge-danger";
+                            }
+                            <tr>
+                                <td>
+                                    #@irem.HeadingID
+                                </td>
+                                <td>
+                                    <a>
+                                        @irem.HeadingName
+                                    </a>
+                                    <br />
+                                    <small>
+                                        @(((DateTime)irem.HeadingTime).ToString("dd-MMM-yyyy"))
+                                    </small>
+                                </td>
+                                <td>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <img style="text-align:center;" alt="Avatar" class="table-avatar" src="@irem.Writer.WriterImage">
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="project-state">
+                                    <span class="@color">@irem.Category.CategoryName</span>
+                                </td>
+                                <td class="project-actions text-right">
+                                    <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading/@irem.HeadingID">
+                                        <i class="fas fa-folder">
+                                        </i>
+                                        Yazılar
+                                    </a>
+                                    <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@irem.HeadingID">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Düzenle
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Sil
+                                    </a>
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+</body>
+</html>
+<a href="/Heading/AddHeading/" class="btn btn-outline-secondary">Yeni Başlık</a>

@@ -1,0 +1,126 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+
+    .container {
+        background-color: #f8f9fa;
+        padding: 2rem;
+        border-radius: 12px;
+    }
+
+    h3 {
+        font-weight: 700;
+        color: #1a1d23;
+        margin-bottom: 10px;
+        letter-spacing: -0.5px;
+    }
+
+    .table {
+        border-collapse: separate;
+        border-spacing: 0 8px;
+        border: none !important;
+        background-color: transparent;
+    }
+
+
+        .table thead th {
+            background-color: transparent !important;
+            color: #64748b !important;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border: none !important;
+            padding: 12px 20px;
+        }
+
+        .table tbody tr {
+            background-color: #ffffff !important;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .table tbody td {
+            padding: 16px 20px;
+            vertical-align: middle;
+            color: #334155;
+            border: none !important;
+            font-size: 0.95rem;
+        }
+
+        .table tbody tr td:first-child {
+            border-radius: 10px 0 0 10px;
+            font-weight: 600;
+            color: #6366f1;
+        }
+
+        .table tbody tr td:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+
+    .table-hover tbody tr:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        background-color: #fcfcfc !important;
+    }
+
+
+    .table td:last-child {
+        font-weight: 500;
+        color: #10b981;
+    }
+
+
+    .shadow-sm {
+        box-shadow: none !important;
+    }
+</style>
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="container mt-4">
+    <h3>Kategoriler</h3>
+    <table class="table table-bordered shadow-sm table-hover ">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Kategori</th>
+                <th class="text-center">İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kategori in Model)
+            {
+                <tr>
+                    <td>@kategori.CategoryID</td>
+                    <td><strong>@kategori.CategoryName</strong></td>
+                    <td class="align-middle">
+                        <div class="d-flex align-items-center justify-content-center gap-2">
+                            <a href="/AdminCategory/EditCategory/@kategori.CategoryID" class="btn btn-sm btn-light text-primary border-0 shadow-sm me-2" title="Güncelle">
+                                <i class="fa fa-pencil"></i> <span class="ms-1 d-none d-md-inline">Güncelle</span>
+                            </a>
+
+                            <a href="/AdminCategory/DeleteCategory/@kategori.CategoryID" class="btn btn-sm btn-light text-danger border-0 shadow-sm me-2" title="Sil">
+                                <i class="fa fa-remove"></i> <span class="ms-1 d-none d-md-inline">Sil</span>
+                            </a>
+
+                            <a href="#" class="btn btn-sm btn-light text-info border-0 shadow-sm" title="Başlıklar">
+                                <i class="fa fa-list"></i> <span class="ms-1 d-none d-md-inline">Başlıklar</span>
+                            </a>
+                        </div>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/AdminCategory/AddCategory" class="btn btn-outline-secondary">Yeni Kategori</a>
+</div>
+

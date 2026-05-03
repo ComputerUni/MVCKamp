@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "İstatistikler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-primary text-white shadow h-100 p-3">
+                <div class="card-body">
+                    <div class="text-xs font-weight-bold text-uppercase mb-1">Toplam Kategori</div>
+                    <div class="h2 mb-0 font-weight-bold">@ViewBag.CategoryCount</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-success text-white shadow h-100 p-3">
+                <div class="card-body">
+                    <div class="text-xs font-weight-bold text-uppercase mb-1">Yazılım Kategorisi Başlıkları</div>
+                    <div class="h2 mb-0 font-weight-bold">@ViewBag.SoftwareCount</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-info text-white shadow h-100 p-3">
+                <div class="card-body">
+                    <div class="text-xs font-weight-bold text-uppercase mb-1">İçinde 'A' Geçen Yazarlar</div>
+                    <div class="h2 mb-0 font-weight-bold">@ViewBag.WriterA</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-warning text-white shadow h-100 p-3">
+                <div class="card-body">
+                    <div class="text-xs font-weight-bold text-uppercase mb-1">En Fazla Başlıklı Kategori</div>
+                    <div class="h4 mb-0 font-weight-bold">@ViewBag.MaxHeading</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-secondary text-white shadow h-100 p-3">
+                <div class="card-body">
+                    <div class="text-xs font-weight-bold text-uppercase mb-1">Aktif Kategori Sayısı</div>
+                    <div class="h2 mb-0 font-weight-bold">@ViewBag.ActiveStatus</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-danger text-white shadow h-100 p-3">
+                <div class="card-body">
+                    <div class="text-xs font-weight-bold text-uppercase mb-1">Pasif Kategori Sayısı</div>
+                    <div class="h2 mb-0 font-weight-bold">@ViewBag.InActiveStatus</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-dark text-white shadow h-100 p-3">
+                <div class="card-body">
+                    <div class="text-xs font-weight-bold text-uppercase mb-1">Aktif/Pasif Farkı</div>
+                    <div class="h2 mb-0 font-weight-bold">@ViewBag.Diff</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
