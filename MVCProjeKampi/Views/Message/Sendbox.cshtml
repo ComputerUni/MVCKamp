@@ -85,20 +85,13 @@
                                                     <label for="check1"></label>
                                                 </div>
                                             </td>
-                                            <td class="mailbox-star"><a href="/Message/GetInBoxMessageDetails/@irem.MessageID"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Message/GetInBoxMessageDetails/@irem.MessageID">@irem.ReceiverMail</a></td>
+                                            <td class="mailbox-star"><a href="/Message/GetSendBoxMessageDetails/@irem.MessageID"><i class="fas fa-star text-warning"></i></a></td>
+                                            <td class="mailbox-name"><a href="/Message/GetSendBoxMessageDetails/@irem.MessageID">@irem.ReceiverMail</a></td>
                                             <td class="mailbox-subject">
-                                                <b>@irem.Subject</b> - @{
-                
-                                                    string cleanText = System.Text.RegularExpressions.Regex.Replace(irem.MessageContent, "<.*?>", String.Empty);
-
-                                                   
-                                                    string shortText = cleanText.Length > 50 ? cleanText.Substring(0, 50) + "..." : cleanText;
-                                                }
-                                                @shortText
+                                                <b>@irem.Subject</b> - @irem.MessageContent
                                             </td>
                                             <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">5 mins ago</td>
+                                            <td class="mailbox-date">@irem.MessageDate.ToString("dd-MMM-yyyy")</td>
                                         </tr>
                                     }
 

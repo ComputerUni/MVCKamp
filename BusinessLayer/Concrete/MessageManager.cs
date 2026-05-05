@@ -25,12 +25,12 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetListInbox()
         {
-            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com" && x.IsDraft == false);
+            return _messageDal.List(x => x.ReceiverMail == "aliyildiz@gmail.com" && x.IsDraft == false);
         }
 
         public List<Message> GetListSendbox()
         {
-            return _messageDal.List(x => x.SenderMail == "admin@gmail.com" && x.IsDraft == false);
+            return _messageDal.List(x => x.SenderMail == "aliyildiz@gmail.com" && x.IsDraft == false);
         }
 
         public List<Message> GetListDraft()
@@ -38,26 +38,11 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.IsDraft == true);
         }
 
-        public void SaveDraft(Message message)
-        {
-            message.SenderMail = "admin@gmail.com";
-            message.MessageDate = DateTime.Now;
-            message.IsDraft = true;
-
-            _messageDal.Insert(message);
-        }
-
-        public void SaveMessage(Message message)
-        {
-            message.SenderMail = "admin@gmail.com";
-            message.MessageDate = DateTime.Now;
-            message.IsDraft = false;
-
-            _messageDal.Insert(message);
-        }
 
         public void MessageAddBL(Message message)
         {
+            message.SenderMail = "admin@gmail.com";
+            message.MessageDate = DateTime.Now;
             _messageDal.Insert(message);
         }
 

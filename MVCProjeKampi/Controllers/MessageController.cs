@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,8 @@ namespace MVCProjeKampi.Controllers
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
         ContactManager cm = new ContactManager(new EfContactDal());
+        MessageValidator messageValidator = new MessageValidator();
+
         public ActionResult Inbox()
         {
             var messageValue = mm.GetListInbox();
@@ -30,6 +34,12 @@ namespace MVCProjeKampi.Controllers
             return View(messageValues);
         }
 
+        public ActionResult GetSendBoxMessageDetails(int id)
+        {
+            var messageValues = mm.GetByID(id);
+            return View(messageValues);
+        }
+
         public ActionResult GetDraftMessage()
         {
             var draftValues = mm.GetListDraft();
@@ -43,24 +53,37 @@ namespace MVCProjeKampi.Controllers
             return View();
         }
 
+
         [HttpPost]
-        [ValidateInput(false)]
         public ActionResult NewMessage(Message p, string actionType)
         {
-            if(actionType == "draft")
+            ValidationResult result = messageValidator.Validate(p);
+            if (!result.IsValid)
             {
-                mm.SaveDraft(p);
+
+                foreach (var irem in result.Errors)
+                {
+                    ModelState.AddModelError(irem.PropertyName, irem.ErrorMessage);
+                }
+
+                return View(p);
+
+            }
+
+            if (actionType == "draft")
+            {
+                p.IsDraft = true;
+                mm.MessageAddBL(p);
                 return RedirectToAction("GetDraftMessage");
             }
-            else if(actionType == "send")
+            else if (actionType == "send")
             {
-                mm.SaveMessage(p);
+                p.IsDraft = false;
+                mm.MessageAddBL(p);
                 return RedirectToAction("Sendbox");
             }
-
-            return RedirectToAction("NewMessage");
+            return View();
         }
-
 
 
         public PartialViewResult MessageList()
@@ -72,10 +95,10 @@ namespace MVCProjeKampi.Controllers
             ViewBag.sendboxCount = sendboxCount;
 
             var contactCount = cm.GetList().Count();
-            ViewBag.contactCount = contactCount;   
-            
-            var draftCount = mm.GetListDraft().Count(); 
-            ViewBag.draftCount = draftCount;    
+            ViewBag.contactCount = contactCount;
+
+            var draftCount = mm.GetListDraft().Count();
+            ViewBag.draftCount = draftCount;
 
             return PartialView();
         }
