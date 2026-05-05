@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete
 {
-    public class Context: DbContext
+    public class Context : DbContext
     {
         public Context() : base("Context")
         {
@@ -21,5 +21,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<Content> Contents { get; set; }
         public DbSet<Heading> Headings { get; set; }
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }
