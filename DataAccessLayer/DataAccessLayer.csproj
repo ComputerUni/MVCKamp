@@ -130,6 +130,14 @@
     <Compile Include="Migrations\202605051829074_mig_admin_table.Designer.cs">
       <DependentUpon>202605051829074_mig_admin_table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202605061625367_add_aboutstatus_mig.cs" />
+    <Compile Include="Migrations\202605061625367_add_aboutstatus_mig.Designer.cs">
+      <DependentUpon>202605061625367_add_aboutstatus_mig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202605061655578_add_isread_add_message-table.cs" />
+    <Compile Include="Migrations\202605061655578_add_isread_add_message-table.Designer.cs">
+      <DependentUpon>202605061655578_add_isread_add_message-table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -185,6 +193,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202605051829074_mig_admin_table.resx">
       <DependentUpon>202605051829074_mig_admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202605061625367_add_aboutstatus_mig.resx">
+      <DependentUpon>202605061625367_add_aboutstatus_mig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202605061655578_add_isread_add_message-table.resx">
+      <DependentUpon>202605061655578_add_isread_add_message-table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

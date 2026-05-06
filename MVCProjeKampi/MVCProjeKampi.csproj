@@ -230,6 +230,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
@@ -238,6 +239,7 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
+    <Compile Include="Controllers\WriterPanelContentController.cs" />
     <Compile Include="Controllers\WriterPanelController.cs" />
     <Compile Include="Controllers\WriterPanelMessageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -427,6 +429,17 @@
     <Content Include="AdminLTE-3.0.4\login-form-19\css\style.css" />
     <Content Include="AdminLTE-3.0.4\login-form-19\index.html" />
     <Content Include="AdminLTE-3.0.4\login-form-19\main.html" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap.min.css" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap\mixins\_reset-text.css" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap\mixins\_text-hide.css" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap\mixins\_visibility.css" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap\_media.css" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\style.css" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\index.html" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\main.html" />
     <Content Include="AdminLTE-3.0.4\pages\calendar.html" />
     <Content Include="AdminLTE-3.0.4\pages\charts\chartjs.html" />
     <Content Include="AdminLTE-3.0.4\pages\charts\flot.html" />
@@ -2387,6 +2400,11 @@
     <Content Include="AdminLTE-3.0.4\login-form-19\css\.DS_Store" />
     <Content Include="AdminLTE-3.0.4\login-form-19\css\bootstrap\.DS_Store" />
     <Content Include="AdminLTE-3.0.4\login-form-19\css\bootstrap\mixins\.DS_Store" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\.DS_Store" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\.DS_Store" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap\.DS_Store" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap\mixins\.DS_Store" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\images\.DS_Store" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -2451,6 +2469,13 @@
     <Content Include="Views\WriterPanelMessage\Inbox.cshtml" />
     <Content Include="Views\WriterPanelMessage\MessageListMenu.cshtml" />
     <Content Include="Views\WriterPanelMessage\Sendbox.cshtml" />
+    <Content Include="Views\WriterPanelMessage\GetInBoxMessageDetails.cshtml" />
+    <Content Include="Views\WriterPanelMessage\GetSendBoxMessageDetails.cshtml" />
+    <Content Include="Views\WriterPanelMessage\NewMessage.cshtml" />
+    <Content Include="Views\WriterPanelContent\MyContent.cshtml" />
+    <Content Include="Views\Login\WriterLogin.cshtml" />
+    <Content Include="Views\Default\Headings.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,6 +9,13 @@
 <!DOCTYPE html>
 <html>
 
+<style>
+    .unread-row {
+        background-color: #f4f4f4; /* Okunmayanlar hafif gri/belirgin olsun */
+        font-weight: bold; /* Yazılar kalın olsun */
+    }
+</style>
+
 <body class="hold-transition sidebar-mini">
 
     <!-- Content Wrapper. Contains page content -->
@@ -78,19 +85,28 @@
                                 <tbody>
                                     @foreach (var irem in Model)
                                     {
-                                        <tr>
+                                        <tr class="@(irem.IsRead ? "" : "unread-row")">
                                             <td>
                                                 <div class="icheck-primary">
-                                                    <input type="checkbox" value="" id="check1">
-                                                    <label for="check1"></label>
+                                                    <input type="checkbox">
                                                 </div>
                                             </td>
-                                            <td class="mailbox-star"><a href="/Message/GetInBoxMessageDetails/@irem.MessageID"><i class="fas fa-star text-warning"></i></a></td>
+                                            <td class="mailbox-star"><a href="/Message/GetInBoxMessageDetails/@irem.MessageID"><i class="fas fa-star @(irem.IsRead ? "text-success" : "text-warning")"></i></a></td>
                                             <td class="mailbox-name"><a href="/Message/GetInBoxMessageDetails/@irem.MessageID">@irem.SenderMail</a></td>
                                             <td class="mailbox-subject">
-                                                <b>@irem.Subject</b> - @irem.MessageContent.Substring(0, 50)...
+                                                <b>@irem.Subject</b> -
+                                                @(irem.Subject.Length > 50 ? irem.Subject.Substring(0, 50) + "..." : irem.Subject)
                                             </td>
-                                            <td class="mailbox-attachment"></td>
+                                            <td class="mailbox-attachment">
+                                                @if (irem.IsRead)
+                                                {
+                                                    <span class="badge badge-success">Okundu</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-danger">Okunmadı</span>
+                                                }
+                                            </td>
                                             <td class="mailbox-date">@irem.MessageDate.ToString("dd-MMM-yyyy")</td>
                                         </tr>
                                     }
@@ -135,5 +151,5 @@
     </section>
 
 </body>
-</html>     
+</html>
 

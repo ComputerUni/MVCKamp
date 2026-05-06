@@ -10,11 +10,14 @@ using System.Web.Security;
 
 namespace MVCProjeKampi.Controllers
 {
+
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login
 
         AdminManager adm = new AdminManager(new EfAdminDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
 
         [HttpGet]
         public ActionResult Index()
@@ -38,8 +41,30 @@ namespace MVCProjeKampi.Controllers
                 TempData["LoginError"] = "Hatalı Giriş!";
                 return View();
             }
+        }
 
-        }    
-        
+        [HttpGet]
+        public ActionResult WriterLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WriterLogin(Writer writer)
+        {
+            var writerUser = wm.Login(writer);
+            if(writerUser != null)
+            {
+                FormsAuthentication.SetAuthCookie(writerUser.WriterMail, false);
+                Session["WriterMail"] = writerUser.WriterMail;
+                return RedirectToAction("MyContent", "WriterPanelContent");
+            }
+            else
+            {
+                TempData["LoginError"] = "Hatalı Giriş!";
+                return RedirectToAction("WriterLogin");
+            }
+        }
+
     }
 }

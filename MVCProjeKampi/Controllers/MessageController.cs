@@ -30,6 +30,7 @@ namespace MVCProjeKampi.Controllers
 
         public ActionResult GetInBoxMessageDetails(int id)
         {
+            mm.IsReadMessage(id);
             var messageValues = mm.GetByID(id);
             return View(messageValues);
         }
@@ -45,7 +46,6 @@ namespace MVCProjeKampi.Controllers
             var draftValues = mm.GetListDraft();
             return View(draftValues);
         }
-
 
         [HttpGet]
         public ActionResult NewMessage()
@@ -99,6 +99,12 @@ namespace MVCProjeKampi.Controllers
 
             var draftCount = mm.GetListDraft().Count();
             ViewBag.draftCount = draftCount;
+
+            var unreadCount = mm.GetListInbox().Where(x => x.IsRead == false).Count();
+            ViewBag.unreadCount = unreadCount;
+
+            var readCount = mm.GetListInbox().Where(x => x.IsRead == true).Count();
+            ViewBag.readCount = readCount;
 
             return PartialView();
         }

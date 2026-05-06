@@ -23,9 +23,27 @@ namespace BusinessLayer.Concrete
             return _writerDal.Get(x => x.WriterID == id);
         }
 
+        public Writer GetByMail(string mail)
+        {
+            return _writerDal.Get(x => x.WriterMail == mail);
+        }
+
         public List<Writer> GetList()
         {
             return _writerDal.List();
+        }
+
+        public Writer Login(Writer writer)
+        {
+            var writerUser = _writerDal.Get(x => x.WriterMail == writer.WriterMail);
+            if (writerUser != null)
+            {
+                if (writer.WriterPassword == writerUser.WriterPassword)
+                {
+                    return writerUser;
+                }
+            }
+            return null;
         }
 
         public void WriterAdd(Writer writer)

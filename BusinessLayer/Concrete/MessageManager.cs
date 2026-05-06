@@ -41,7 +41,9 @@ namespace BusinessLayer.Concrete
 
         public void MessageAddBL(Message message)
         {
-            message.SenderMail = "admin@gmail.com";
+            message.SenderMail = "aliyildiz@gmail.com";
+            //Admin için sonrasında geri al yoksa sıkıntı olur
+            //message.SenderMail = "admin@gmail.com";
             message.MessageDate = DateTime.Now;
             _messageDal.Insert(message);
         }
@@ -56,5 +58,14 @@ namespace BusinessLayer.Concrete
             _messageDal.Update(message);
         }
 
+        public void IsReadMessage(int id)
+        {
+            var messageValue = _messageDal.Get(x => x.MessageID == id);
+            if (messageValue != null)
+            {
+                messageValue.IsRead = true;
+                _messageDal.Update(messageValue);
+            }
+        }
     }
 }

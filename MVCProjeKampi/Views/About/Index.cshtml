@@ -17,8 +17,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Hakkımda Başlığı</th>
-                    <th>Aktif Yap</th>
-                    <th>Pasif Yap</th>
+                    <th>Durum</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,8 +27,29 @@
                     <tr>
                         <td>@irem.AboutID</td>
                         <td>Başlık</td>
-                        <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
-                        <td><a href="#" class="btn btn-danger">Pasif Yap</a></td>
+                        <td>
+                            @if (irem.AboutStatus == true)
+                            {
+                                <span class="badge badge-success">Aktif</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-danger">Pasif</span>
+                            }
+                        </td>
+
+                        <td>
+                            <a href="/About/ChangeStatus/@irem.AboutID" class="btn @(irem.AboutStatus ? "btn-outline-danger":"btn-outline-success") btn-sm">
+                                @if (irem.AboutStatus)
+                                {
+                                    <span><i class="fas fa-eye-slash"></i>Pasif Yap</span>
+                                }
+                                else
+                                {
+                                    <span><i class="fas fa-eye"></i>Aktif Yap</span>
+                                }
+                            </a>
+                        </td>
                     </tr>
 
                 }
