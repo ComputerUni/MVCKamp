@@ -28,10 +28,12 @@ namespace MVCProjeKampi.Controllers
 
         public PartialViewResult ContactPartial()
         {
-            var inboxCount = mm.GetListInbox().Count();
+            string mail = (string)Session["WriterMail"];
+
+            var inboxCount = mm.GetListInbox(mail).Count();
             ViewBag.inboxCount = inboxCount;
 
-            var sendboxCount = mm.GetListSendbox().Count();
+            var sendboxCount = mm.GetListSendbox(mail).Count();
             ViewBag.sendboxCount = sendboxCount;
 
             var contactCount = cm.GetList().Count();

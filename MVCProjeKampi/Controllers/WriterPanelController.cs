@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MVCProjeKampi.Controllers
 {
@@ -23,7 +25,7 @@ namespace MVCProjeKampi.Controllers
             return View();
         }
 
-        
+
         public ActionResult MyHeading()
         {
             string writerMail = (string)Session["WriterMail"];
@@ -43,7 +45,7 @@ namespace MVCProjeKampi.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewHeading(Heading p) 
+        public ActionResult NewHeading(Heading p)
         {
             string writerMail = (string)Session["WriterMail"];
             var writerInfo = wm.GetByMail(writerMail);
@@ -76,6 +78,12 @@ namespace MVCProjeKampi.Controllers
             headingValue.HeadingStatus = false;
             hm.HeadingDelete(headingValue);
             return RedirectToAction("MyHeading");
+        }
+
+        public ActionResult AllHeading(int p = 1)
+        {
+            var headings = hm.GetList().ToPagedList(p, 4);
+            return View(headings);
         }
 
     }

@@ -23,14 +23,14 @@ namespace BusinessLayer.Concrete
             return _messageDal.Get(x => x.MessageID == id);
         }
 
-        public List<Message> GetListInbox()
+        public List<Message> GetListInbox(string p)
         {
-            return _messageDal.List(x => x.ReceiverMail == "aliyildiz@gmail.com" && x.IsDraft == false);
+            return _messageDal.List(x => x.ReceiverMail == p && x.IsDraft == false);
         }
 
-        public List<Message> GetListSendbox()
+        public List<Message> GetListSendbox(string p)
         {
-            return _messageDal.List(x => x.SenderMail == "aliyildiz@gmail.com" && x.IsDraft == false);
+            return _messageDal.List(x => x.SenderMail == p && x.IsDraft == false);
         }
 
         public List<Message> GetListDraft()
@@ -41,7 +41,6 @@ namespace BusinessLayer.Concrete
 
         public void MessageAddBL(Message message)
         {
-            message.SenderMail = "aliyildiz@gmail.com";
             //Admin için sonrasında geri al yoksa sıkıntı olur
             //message.SenderMail = "admin@gmail.com";
             message.MessageDate = DateTime.Now;

@@ -16,15 +16,16 @@ namespace MVCProjeKampi.Controllers
         ContactManager cm = new ContactManager(new EfContactDal());
         MessageValidator messageValidator = new MessageValidator();
 
-        public ActionResult Inbox()
+        public ActionResult Inbox(string p)
         {
-            var messageValue = mm.GetListInbox();
+            var messageValue = mm.GetListInbox(p);
             return View(messageValue);
         }
 
         public ActionResult Sendbox()
         {
-            var messageList = mm.GetListSendbox();
+            string mail = (string)Session["WriterMail"];
+            var messageList = mm.GetListSendbox(mail);
             return View(messageList);
         }
 
@@ -88,10 +89,12 @@ namespace MVCProjeKampi.Controllers
 
         public PartialViewResult MessageList()
         {
-            var inboxCount = mm.GetListInbox().Count();
+            string mail = (string)Session["WriterMail"];
+
+            var inboxCount = mm.GetListInbox(mail).Count();
             ViewBag.inboxCount = inboxCount;
 
-            var sendboxCount = mm.GetListSendbox().Count();
+            var sendboxCount = mm.GetListSendbox(mail).Count();
             ViewBag.sendboxCount = sendboxCount;
 
             var contactCount = cm.GetList().Count();
@@ -100,10 +103,10 @@ namespace MVCProjeKampi.Controllers
             var draftCount = mm.GetListDraft().Count();
             ViewBag.draftCount = draftCount;
 
-            var unreadCount = mm.GetListInbox().Where(x => x.IsRead == false).Count();
+            var unreadCount = mm.GetListInbox(mail).Where(x => x.IsRead == false).Count();
             ViewBag.unreadCount = unreadCount;
 
-            var readCount = mm.GetListInbox().Where(x => x.IsRead == true).Count();
+            var readCount = mm.GetListInbox(mail).Where(x => x.IsRead == true).Count();
             ViewBag.readCount = readCount;
 
             return PartialView();

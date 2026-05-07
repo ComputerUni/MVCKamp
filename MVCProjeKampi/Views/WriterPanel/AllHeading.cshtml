@@ -1,8 +1,10 @@
 ﻿@using EntityLayer.Concrete
-@model List<Heading>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Heading>
 
 @{
-    ViewBag.Title = "MyHeading";
+    ViewBag.Title = "AllHeading";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
@@ -103,13 +105,15 @@
                                 <td>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <img style="text-align:center;" alt="Avatar" class="table-avatar" src="@irem.Writer.WriterImage">
+                                            <a href="/WriterPanelContent/MyContent/@irem.WriterID">
+                                                <img style="text-align:center;" alt="Avatar" class="table-avatar" src="@irem.Writer.WriterImage">
+                                            </a>
                                         </li>
                                     </ul>
                                 </td>
                                 @*<td>
-                                    <span class="@badgeStatusClass">@statusText</span>
-                                </td>*@
+                                        <span class="@badgeStatusClass">@statusText</span>
+                                    </td>*@
                                 <td class="project-state">
                                     <span class="@color">@irem.Category.CategoryName</span>
                                 </td>
@@ -119,15 +123,10 @@
                                         </i>
                                         Yazılar
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="/WriterPanel/EditHeading/@irem.HeadingID">
+                                    <a class="btn btn-info btn-sm" href="/WriterPanelContent/AddContent/@irem.HeadingID">
                                         <i class="fas fa-pencil-alt">
                                         </i>
-                                        Düzenle
-                                    </a>
-                                    <a class="@buttonColor" href="/WriterPanel/DeleteHeading/@irem.HeadingID">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        @buttonText
+                                        Bu Başlığa Yaz
                                     </a>
                                 </td>
                             </tr>
@@ -142,4 +141,8 @@
     </section>
 </body>
 </html>
-<a href="/WriterPanel/NewHeading/" class="btn btn-outline-secondary">Yeni Başlık</a>
+@Html.PagedListPager((IPagedList)Model, p => Url.Action("AllHeading", new { p }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link"}
+})

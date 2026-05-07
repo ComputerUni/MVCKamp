@@ -15,20 +15,24 @@ namespace MVCProjeKampi.Controllers
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
+        WriterManager wm = new WriterManager(new EfWriterDal());
         public ActionResult Inbox()
         {
-            var messageValue = mm.GetListInbox();
+            string mail = (string)Session["WriterMail"];
+            var messageValue = mm.GetListInbox(mail);
             return View(messageValue);
         }
 
         public PartialViewResult MessageListMenu()
         {
+            string mail = (string)Session["WriterMail"];
             return PartialView();
         }
 
         public ActionResult Sendbox()
         {
-            var messageList = mm.GetListSendbox();
+            string mail = (string)Session["WriterMail"];
+            var messageList = mm.GetListSendbox(mail);
             return View(messageList);
         }
 
@@ -54,10 +58,11 @@ namespace MVCProjeKampi.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message p)
         {
+            string sender = (string)Session["WriterMail"];
             ValidationResult results = messageValidator.Validate(p);
             if(results.IsValid)
             {
-                p.SenderMail = "aliyildiz@gmail.com".Trim();
+                p.SenderMail = sender;
                 p.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 p.IsDraft = false;
                 mm.MessageAddBL(p);

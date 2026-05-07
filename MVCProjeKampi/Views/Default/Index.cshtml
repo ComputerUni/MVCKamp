@@ -18,7 +18,7 @@
                             @foreach (var irem in Model)
                             {
                                 <div class="time-label">
-                                    <span class="bg-success">@(((DateTime)irem.ContentDate).ToString("dd-MMM-yyyy"))</span>
+                                    <span class="bg-success">@(((DateTime)irem.ContentDate).ToString("dd-MMM-yyyy")) - @irem.Writer.WriterName @irem.Writer.WriterSurname</span>
                                 </div>
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
