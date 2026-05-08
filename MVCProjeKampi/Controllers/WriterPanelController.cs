@@ -1,15 +1,17 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.Ajax.Utilities;
+using PagedList;
+using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PagedList;
-using PagedList.Mvc;
 
 namespace MVCProjeKampi.Controllers
 {
@@ -19,9 +21,33 @@ namespace MVCProjeKampi.Controllers
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
+        WriterValidator writerValidator = new WriterValidator();
 
+        [HttpGet]
         public ActionResult WriterProfile()
         {
+            string writerMail = (string)Session["WriterMail"];
+            var writerInfo = wm.GetByMail(writerMail);
+            return View(writerInfo);
+        }
+
+
+        [HttpPost]
+        public ActionResult WriterProfile(Writer p)
+        {
+            ValidationResult result = writerValidator.Validate(p);
+            if (result.IsValid)
+            {
+                wm.WriterUpdate(p);
+                return RedirectToAction("AllHeading", "WriterPanel");
+            }
+            else
+            {
+                foreach (var irem in result.Errors)
+                {
+                    ModelState.AddModelError(irem.PropertyName, irem.ErrorMessage);
+                }
+            }
             return View();
         }
 

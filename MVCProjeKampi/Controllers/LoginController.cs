@@ -17,7 +17,7 @@ namespace MVCProjeKampi.Controllers
         // GET: Login
 
         AdminManager adm = new AdminManager(new EfAdminDal());
-        WriterManager wm = new WriterManager(new EfWriterDal());
+        WriterLoginManager wlm = new WriterLoginManager(new EfWriterDal());
 
         [HttpGet]
         public ActionResult Index()
@@ -52,11 +52,12 @@ namespace MVCProjeKampi.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer writer)
         {
-            var writerUser = wm.Login(writer);
+            var writerUser = wlm.GetWriter(writer.WriterMail, writer.WriterPassword);
             if(writerUser != null)
             {
                 FormsAuthentication.SetAuthCookie(writerUser.WriterMail, false);
                 Session["WriterMail"] = writerUser.WriterMail;
+                Session["WriterID"] = writerUser.WriterID;
                 return RedirectToAction("MyContent", "WriterPanelContent");
             }
             else
