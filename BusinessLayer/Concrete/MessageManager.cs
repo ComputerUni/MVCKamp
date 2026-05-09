@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -23,14 +24,26 @@ namespace BusinessLayer.Concrete
             return _messageDal.Get(x => x.MessageID == id);
         }
 
-        public List<Message> GetListInbox(string p)
+        public List<Message> GetListInbox(string username, string searchString = null)
         {
-            return _messageDal.List(x => x.ReceiverMail == p && x.IsDraft == false);
+            var values = _messageDal.List(x => x.ReceiverMail == username
+                                    && x.IsDraft == false);
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                values = values.Where(x => x.MessageContent.Contains(searchString) || x.Subject.Contains(searchString)).ToList();
+            }
+            return values;
         }
 
-        public List<Message> GetListSendbox(string p)
+        public List<Message> GetListSendbox(string mail, string searchString = null)
         {
-            return _messageDal.List(x => x.SenderMail == p && x.IsDraft == false);
+            var values = _messageDal.List(x => x.SenderMail == mail && x.IsDraft == false);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                values = values.Where(x => x.MessageContent.Contains(searchString) || x.Subject.Contains(searchString)).ToList();
+            }
+            return values;
         }
 
         public List<Message> GetListDraft()
@@ -41,8 +54,7 @@ namespace BusinessLayer.Concrete
 
         public void MessageAddBL(Message message)
         {
-            //Admin için sonrasında geri al yoksa sıkıntı olur
-            //message.SenderMail = "admin@gmail.com";
+            message.SenderMail = "admin@gmail.com";
             message.MessageDate = DateTime.Now;
             _messageDal.Insert(message);
         }

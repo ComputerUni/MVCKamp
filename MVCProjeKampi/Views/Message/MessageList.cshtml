@@ -26,7 +26,7 @@
                 <li class="nav-item">
                     <a href="/Message/Sendbox/" class="nav-link">
                         <i class="far fa-envelope"></i> Gönderilen Mesajlar
-                        <span class="badge bg-primary float-right">@ViewBag.sendboxCount</span>
+                        <span class="badge bg-indigo float-right">@ViewBag.sendboxCount</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -42,8 +42,14 @@
                 </li>
                 <li class="nav-item">
                     <div class="nav-link">
-                        <p>Okunan Mesaj Sayısı : @ViewBag.readCount</p>
-                        <p>Okunmayan Mesaj Sayısı : @ViewBag.unreadCount</p>
+                        <p class="text-danger">
+                            <i class="fas fa-envelope text-bg-danger"></i> Okunmayan Mesaj Sayısı:
+                            <span class="badge badge-danger">@ViewBag.unreadCount</span>
+                        </p>
+                        <p class="text-success">
+                            <i class="fas fa-envelope-open text-bg-success"></i> Okunan Mesaj Sayısı:
+                            <span class="badge badge-success">@ViewBag.readCount</span>
+                        </p>
                     </div>
                 </li>
             </ul>

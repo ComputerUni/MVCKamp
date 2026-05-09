@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 namespace MVCProjeKampi.Controllers
 {
     public class MessageController : Controller
@@ -16,17 +17,18 @@ namespace MVCProjeKampi.Controllers
         ContactManager cm = new ContactManager(new EfContactDal());
         MessageValidator messageValidator = new MessageValidator();
 
-        public ActionResult Inbox(string p)
+        public ActionResult Inbox(string p, int page=1)
         {
-            var messageValue = mm.GetListInbox(p);
-            return View(messageValue);
+            string mail = "admin@gmail.com";
+            var messageValue = mm.GetListInbox(mail, p);
+            return View(messageValue.ToPagedList(page, 7));
         }
 
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string p, int page = 1)
         {
-            string mail = (string)Session["WriterMail"];
-            var messageList = mm.GetListSendbox(mail);
-            return View(messageList);
+            string mail = "admin@gmail.com";
+            var messageList = mm.GetListSendbox(mail, p);
+            return View(messageList.ToPagedList(page, 7));
         }
 
         public ActionResult GetInBoxMessageDetails(int id)
@@ -89,7 +91,7 @@ namespace MVCProjeKampi.Controllers
 
         public PartialViewResult MessageList()
         {
-            string mail = (string)Session["WriterMail"];
+            string mail = "admin@gmail.com";
 
             var inboxCount = mm.GetListInbox(mail).Count();
             ViewBag.inboxCount = inboxCount;
