@@ -1,0 +1,162 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+@{
+    ViewBag.Title = "HeadingReport";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rapor Ekranı</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .report-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .table thead th {
+            background-color: #343a40;
+            color: white;
+            border-bottom: 2px solid #dee2e6;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+        .dt-buttons .btn {
+            margin-right: 5px;
+            border-radius: 4px !important;
+            font-weight: 500;
+        }
+
+        .buttons-excel {
+            background-color: #217346 !important;
+            color: white !important;
+            border: none;
+        }
+
+        .buttons-pdf {
+            background-color: #d32f2f !important;
+            color: white !important;
+            border: none;
+        }
+
+        .buttons-copy {
+            background-color: #007bff !important;
+            color: white !important;
+            border: none;
+        }
+
+        .buttons-csv {
+            background-color: #4b6584 !important;
+            color: white !important;
+            border: none;
+        }
+
+        .buttons-colvis {
+            background-color: #778ca3 !important;
+            color: white !important;
+            border: none;
+        }
+
+        .status-active {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .status-passive {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="report-container">
+        <h2 class="mb-4 text-dark border-bottom pb-2">Başlık Raporları</h2>
+
+        <table id="example" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Başlık Adı</th>
+                    <th>Tarih</th>
+                    <th>Yazar</th>
+                    <th>Kategori</th>
+                    <th>Durum</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><strong>@item.HeadingID</strong></td>
+                        <td>@item.HeadingName</td>
+                        <td>@item.HeadingTime.ToShortDateString()</td>
+                        <td>@item.Writer.WriterName @item.Writer.WriterSurname</td>
+                        <td><span class="badge badge-info">@item.Category.CategoryName</span></td>
+                        <td>
+                            @if (item.HeadingStatus)
+                            {
+                                <span class="status-active">Aktif</span>
+                            }
+                            else
+                            {
+                                <span class="status-passive">Pasif</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                dom: 'Bfrtipl',
+                buttons: [
+                    { extend: 'copy', text: 'Kopyala' },
+                    { extend: 'excel', text: 'Excel' },
+                    { extend: 'csv', text: 'CSV' },
+                    { extend: 'pdf', text: 'PDF Rapor' },
+                    { extend: 'colvis', text: 'Sütunları Yönet' }
+                ],
+                language: {
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+
+            table.buttons().container()
+                .appendTo('#example_wrapper .col-md-6');
+        });
+    </script>
+</body>
+</html>
