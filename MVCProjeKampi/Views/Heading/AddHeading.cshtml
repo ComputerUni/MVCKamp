@@ -5,13 +5,22 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Başlık Ekleme Sayfası</h1>
+            </div>
+        </div>
+    </div>
+</section>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow-lg border-0 rounded-lg">
                 <div class="card-header bg-dark text-white text-center py-3">
-                    <h3 class="font-weight-light my-1"><i class="fas fa-user-plus mr-2"></i>Yeni Başlık</h3>
+                    <h3 class="font-weight-light my-1"><i class="fas fa-pen mr-3"></i>Yeni Başlık</h3>
                 </div>
                 <div class="card-body p-4">
                     @using (Html.BeginForm("AddHeading", "Heading", FormMethod.Post))
@@ -32,7 +41,7 @@
                             @Html.Label("Kategori", new { @class = "small mb-1 font-weight-bold" })
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-clipboard-list"></i></span>
                                 </div>
                                 @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
                             </div>
@@ -42,7 +51,7 @@
                             @Html.Label("Yazar", new { @class = "small mb-1 font-weight-bold" })
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-edit"></i></span>
                                 </div>
                                 @Html.DropDownListFor(x => x.WriterID, (List<SelectListItem>)ViewBag.wlc, new { @class = "form-control" })
                             </div>

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace MVCProjeKampi.Controllers
 {
@@ -17,10 +18,10 @@ namespace MVCProjeKampi.Controllers
         WriterManager wm = new WriterManager(new EfWriterDal());
         WriterValidator writerValidator = new WriterValidator();
 
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
             var WriterValues = wm.GetList();
-            return View(WriterValues);
+            return View(WriterValues.ToPagedList(page,6));
         }
 
         [HttpGet]

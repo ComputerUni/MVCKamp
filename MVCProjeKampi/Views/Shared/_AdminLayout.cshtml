@@ -68,17 +68,15 @@ to get the desired effect
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
-                        @if (User.IsInRole("B"))
-                        {
+
                         <li class="nav-item has-treeview menu-open">
-                            <a href="/AdminCategory/Index" class="nav-link active">
+                            <a href="/AdminCategory/Index" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Kategoriler
                                 </p>
                             </a>
                         </li>
-                        }
                         <li class="nav-item">
                             <a href="/Heading/Index" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -88,7 +86,7 @@ to get the desired effect
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/Heading/Index" class="nav-link">
+                            <a href="/Content/GetAllContent" class="nav-link">
                                 <i class="nav-icon fas fa-bookmark"></i>
                                 <p>
                                     Yazılar
@@ -121,20 +119,20 @@ to get the desired effect
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="/Chart/Index/" class="nav-link">
+                                        <i class="far fa-chart-bar nav-icon"></i>
                                         <p>Grafik 1</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="/Chart/Index2/" class="nav-link">
+                                        <i class="far fa-chart-bar nav-icon"></i>
                                         <p>Grafik 2</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="/Chart/Index3/" class="nav-link">
+                                        <i class="far fa-chart-bar nav-icon"></i>
                                         <p>Grafik 3</p>
                                     </a>
                                 </li>
@@ -156,14 +154,14 @@ to get the desired effect
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
+                        @*<li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
                                     Yazılar
                                 </p>
                             </a>
-                        </li>
+                        </li>*@
                         <li class="nav-item">
                             <a href="pages/calendar.html" class="nav-link">
                                 <i class="nav-icon fas fa-calendar-alt"></i>
@@ -182,7 +180,7 @@ to get the desired effect
                         </li>
                         <li class="nav-item">
                             <a href="/ErrorPage/Page404/" class="nav-link">
-                                <i class="fas fa-exclamation-triangle"></i>
+                                <i class="nav-icon fas fa-exclamation-triangle"></i>
                                 <p>
                                     Hata Sayfaları
                                 </p>
@@ -199,7 +197,7 @@ to get the desired effect
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="/Login/Index" class="nav-link">
-                                <i class="nav-icon fas fa-arrow-left"></i>
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>
                                     Çıkış Yap
                                 </p>

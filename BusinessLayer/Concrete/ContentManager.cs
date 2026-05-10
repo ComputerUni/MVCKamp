@@ -31,7 +31,7 @@ namespace BusinessLayer.Concrete
         {
             return _contentDal.Get(x => x.ContentID == id);
         }
-            
+
         public List<Content> GetList()
         {
             return _contentDal.List();
