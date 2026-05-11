@@ -45,5 +45,24 @@ namespace BusinessLayer.Concrete
             return new string[] { adminUser.AdminRole };
         }
 
+        public List<Admin> GetList()
+        {
+            return _adminDal.List();
+        }
+
+        public Admin GetByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AdminDelete(Admin admin)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AdminUpdate(Admin admin)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

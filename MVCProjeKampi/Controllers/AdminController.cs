@@ -13,6 +13,12 @@ namespace MVCProjeKampi.Controllers
     {
         AdminManager adm = new AdminManager(new EfAdminDal());
 
+        public ActionResult Index()
+        {
+            var adminValues = adm.GetList();
+            return View(adminValues);
+        }
+
         [HttpPost]
         public ActionResult AddAdmin(Admin p)
         {
@@ -23,9 +29,9 @@ namespace MVCProjeKampi.Controllers
         public ActionResult CreateAdmin()
         {
             Admin admin = new Admin();
-            admin.AdminUserName = "kadir";
+            admin.AdminUserName = "irem";
             admin.AdminPassword = "123456";
-            admin.AdminRole = "A";
+            admin.AdminRole = "B";
 
             adm.AdminAdd(admin);
 

@@ -1,10 +1,12 @@
 ﻿@using EntityLayer.Concrete
-@model List<Category>
+@model List<Admin>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+
 
 <style>
 
@@ -97,28 +99,30 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Kategori</th>
+                <th>Kullanıcı Mail</th>
+                <th>Yetki</th>
+                <th>Durum</th>
+                <th>Pasif Yap</th>
+                <th>Yetkini Değiştir</th>
                 <th class="text-center">İşlemler</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var kategori in Model)
+            @foreach (var admin in Model)
             {
                 <tr>
-                    <td>@kategori.CategoryID</td>
-                    <td><strong>@kategori.CategoryName</strong></td>
+                    <td>@admin.AdminID</td>
+                    <td><strong>@admin.AdminUserName</strong></td>
+                    <td><strong>@admin.AdminRole</strong></td>
+                    <td><strong>Aktif</strong></td>
                     <td class="align-middle">
                         <div class="d-flex align-items-center justify-content-center gap-2">
-                            <a href="/AdminCategory/EditCategory/@kategori.CategoryID" class="btn btn-sm btn-light text-primary border-0 shadow-sm me-2" title="Güncelle">
-                                <i class="fa fa-pencil"></i> <span class="ms-1 d-none d-md-inline">Güncelle</span>
+                            <a href="/AdminCategory/EditCategory/@admin.AdminID" class="btn btn-sm btn-light text-primary border-0 shadow-sm me-2" title="Güncelle">
+                                <i class="fa fa-pencil"></i> <span class="ms-1 d-none d-md-inline">Pasif Yap</span>
                             </a>
 
-                            <a href="/AdminCategory/DeleteCategory/@kategori.CategoryID" class="btn btn-sm btn-light text-danger border-0 shadow-sm me-2 btnSil" title="Sil">
-                                <i class="fa fa-remove"></i> <span class="ms-1 d-none d-md-inline">Sil</span>
-                            </a>
-
-                            <a href="/Heading/Index/@kategori.CategoryID" class="btn btn-sm btn-light text-info border-0 shadow-sm" title="Başlıklar">
-                                <i class="fa fa-list"></i> <span class="ms-1 d-none d-md-inline">Başlıklar</span>
+                            <a href="/AdminCategory/DeleteCategory/@admin.AdminID" class="btn btn-sm btn-light text-danger border-0 shadow-sm me-2 btnSil" title="Sil">
+                                <i class="fa fa-remove"></i> <span class="ms-1 d-none d-md-inline">Yetkisini Değiştir</span>
                             </a>
                         </div>
 
@@ -127,7 +131,7 @@
             }
         </tbody>
     </table>
-    <a href="/AdminCategory/AddCategory" class="btn btn-outline-secondary">Yeni Kategori</a>
+    <a href="/AdminCategory/AddCategory" class="btn btn-outline-secondary">Yeni Admin</a>
 </div>
 
 <script>
