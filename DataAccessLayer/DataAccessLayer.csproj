@@ -138,6 +138,10 @@
     <Compile Include="Migrations\202605061655578_add_isread_add_message-table.Designer.cs">
       <DependentUpon>202605061655578_add_isread_add_message-table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202605121804375_add_admin-status_migration.cs" />
+    <Compile Include="Migrations\202605121804375_add_admin-status_migration.Designer.cs">
+      <DependentUpon>202605121804375_add_admin-status_migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -199,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202605061655578_add_isread_add_message-table.resx">
       <DependentUpon>202605061655578_add_isread_add_message-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202605121804375_add_admin-status_migration.resx">
+      <DependentUpon>202605121804375_add_admin-status_migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

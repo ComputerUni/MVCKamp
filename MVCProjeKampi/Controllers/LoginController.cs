@@ -1,9 +1,11 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -30,7 +32,7 @@ namespace MVCProjeKampi.Controllers
         {
             var adminUser = adm.Login(admin);
 
-            if(adminUser != null)
+            if (adminUser != null)
             {
                 FormsAuthentication.SetAuthCookie(adminUser.AdminUserName, false);
                 Session["AdminUserName"] = adminUser.AdminUserName;
@@ -52,8 +54,23 @@ namespace MVCProjeKampi.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer writer)
         {
+            var response = Request["g-recaptcha-response"];
+            const string secretKey = "6LduBucsAAAAABlwli8WUsWXiczfQ7yBN6bXdil3";
+            var client = new WebClient();
+            var result = client.DownloadString(
+        $"https://www.google.com/recaptcha/api/siteverify?secret={secretKey}&response={response}");
+
+            dynamic jsonData = JsonConvert.DeserializeObject(result);   
+
+            if(jsonData.success != true)
+            {
+                ViewBag.ErrorMessage = "Lütfen reCAPTCHA doğrulamasını tamamlayın.";
+                return View();
+            }
+
+
             var writerUser = wlm.GetWriter(writer.WriterMail, writer.WriterPassword);
-            if(writerUser != null)
+            if (writerUser != null)
             {
                 FormsAuthentication.SetAuthCookie(writerUser.WriterMail, false);
                 Session["WriterMail"] = writerUser.WriterMail;
@@ -71,7 +88,7 @@ namespace MVCProjeKampi.Controllers
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
-            return RedirectToAction("Headings","Default");
+            return RedirectToAction("Headings", "Default");
         }
     }
 }

@@ -27,7 +27,7 @@ namespace BusinessLayer.Concrete
 
         public Admin Login(Admin admin) 
         {
-            var adminUser = _adminDal.Get(x => x.AdminUserName == admin.AdminUserName);
+            var adminUser = _adminDal.Get(x => x.AdminUserName == admin.AdminUserName && x.AdminStatus == true && x.AdminRole == "A");
 
             if(adminUser != null)
             {
@@ -52,17 +52,28 @@ namespace BusinessLayer.Concrete
 
         public Admin GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _adminDal.Get(x => x.AdminID == id);
         }
 
         public void AdminDelete(Admin admin)
         {
-            throw new NotImplementedException();
+            _adminDal.Update(admin);
         }
 
         public void AdminUpdate(Admin admin)
         {
-            throw new NotImplementedException();
+            var values = _adminDal.Get(x => x.AdminID == admin.AdminID);
+
+            values.AdminUserName = admin.AdminUserName;
+            values.AdminRole = admin.AdminRole;
+
+            if (!string.IsNullOrWhiteSpace(admin.AdminPassword))
+            {
+                values.AdminPassword =
+                    BCrypt.Net.BCrypt.HashPassword(admin.AdminPassword);
+            }
+
+            _adminDal.Update(values);
         }
     }
 }
