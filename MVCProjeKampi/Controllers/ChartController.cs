@@ -1,4 +1,6 @@
-﻿using MVCProjeKampi.Models;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using MVCProjeKampi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,9 @@ namespace MVCProjeKampi.Controllers
 {
     public class ChartController : Controller
     {
-        // GET: Chart
+
+        CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        HeadingManager hm = new HeadingManager(new EfHeadingDal());
         public ActionResult Index()
         {
             return View();
@@ -33,27 +37,15 @@ namespace MVCProjeKampi.Controllers
         public List<CategoryClass> BlogList()
         {
             List<CategoryClass> cc = new List<CategoryClass>();
-            cc.Add(new CategoryClass()
+            var categories = cm.GetList();
+            var headings = hm.GetList();
+
+            var result = categories.Select(x => new CategoryClass
             {
-                CategoryName="Yazılım",
-                CategoryCount = 8,
-            });
-            cc.Add(new CategoryClass()
-            {
-                CategoryName = "Seyahat",
-                CategoryCount = 5,
-            });
-            cc.Add(new CategoryClass()
-            {
-                CategoryName = "Teknoloji",
-                CategoryCount = 4,
-            });
-            cc.Add(new CategoryClass()
-            {
-                CategoryName = "Spor",
-                CategoryCount = 10,
-            });
-            return cc;
+                CategoryName = x.CategoryName,
+                CategoryCount = headings.Count(y => y.CategoryID == x.CategoryID)
+            }).ToList();
+            return result;
         }
     }
 }

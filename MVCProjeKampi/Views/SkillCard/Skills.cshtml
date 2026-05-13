@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<Skills>
+
+<style>
+    .bar-green, .bar-green span {
+        background-color: #28a745 !important;
+    }
+
+    .bar-yellow, .bar-yellow span {
+        background-color: #ffc107 !important;
+    }
+
+    .bar-red, .bar-red span {
+        background-color: #dc3545 !important;
+    }
+</style>
+
+
+
+<h3 class="title">Yeteneklerim</h3>
+<div class="col-md-6 skills-right bar_group">
+    @foreach (var irem in Model)
+    {
+        string colorClass = "";
+        if (irem.Percantage >= 85)
+        {
+            colorClass = "bar-green";
+        }
+        else if (irem.Percantage >= 50)
+        {
+            colorClass = "bar-yellow";
+        }
+        else
+        {
+            colorClass = "bar-red";
+        }
+
+       <div class='bar_group__bar thin @colorClass'
+            label='@irem.SkillName @irem.Percantage%'
+            value='@irem.Percantage'></div>
+    }
+</div>

@@ -9,12 +9,12 @@
 <head>
     <title>Result Visualization</title>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
             $.ajax({
-                type: "POST",
+                type: "GET",
                 dataType: "json",
                 contentType: "application/json",
                 url: '@Url.Action("CategoryChart", "Chart")',
@@ -30,7 +30,7 @@
         });
 
         function drawChart(result) {
-            var data = new google.visualization.DataTable();      
+            var data = new google.visualization.DataTable();
             data.addColumn('string', 'CategoryName');
             data.addColumn('number', 'CategoryCount ');
             var dataArray = [];
@@ -43,10 +43,10 @@
             var columnChartOptions = {
                 title: "Kategori - Blog Dağılımı",
                 pieHole: 0.4,
-                is3D: true,   
+                is3D: true,
                 width: '100%',
                 height: 900,
-                chartArea: { width: '80%', height: '80%' }, 
+                chartArea: { width: '80%', height: '80%' },
                 legend: { position: 'bottom' },
                 colors: ['#e67e22', '#3498db', '#9b59b6', '#2ecc71', '#f1c40f']
             };
@@ -59,7 +59,7 @@
     </script>
 </head>
 <body>
-    <div id="Piechart_div"></div>
+    <div id="Piechart_div" style="width: 100%; height: 500px; border: 1px solid #ccc;"></div>
 </body>
 </html>
 
