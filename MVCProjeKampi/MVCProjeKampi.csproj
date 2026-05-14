@@ -458,6 +458,7 @@
     <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap\utilities\_stretched-link.css" />
     <Content Include="AdminLTE-3.0.4\login-form-20\css\bootstrap\_media.css" />
     <Content Include="AdminLTE-3.0.4\login-form-20\css\style.css" />
+    <Content Include="AdminLTE-3.0.4\login-form-20\images\bgyeni.jpg" />
     <Content Include="AdminLTE-3.0.4\login-form-20\index.html" />
     <Content Include="AdminLTE-3.0.4\login-form-20\main.html" />
     <Content Include="AdminLTE-3.0.4\pages\calendar.html" />
@@ -2166,6 +2167,8 @@
     <Content Include="AdminLTE-3.0.4\web\images\loader.gif" />
     <Content Include="AdminLTE-3.0.4\web\images\move_up.png" />
     <Content Include="AdminLTE-3.0.4\web\images\next.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\pexels-clickerhappy-9346.jpg" />
+    <Content Include="AdminLTE-3.0.4\web\images\pexels-jakubzerdzicki-34109327.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\prev.png" />
     <Content Include="AdminLTE-3.0.4\web\images\serve.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\stats.jpg" />
@@ -2488,6 +2491,7 @@
     <Content Include="AdminLTE-3.0.4\web\webfonts\fa-solid-900.ttf" />
     <Content Include="AdminLTE-3.0.4\web\webfonts\fa-solid-900.woff" />
     <Content Include="AdminLTE-3.0.4\web\webfonts\fa-solid-900.woff2" />
+    <Content Include="README.md" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
