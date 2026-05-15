@@ -248,7 +248,7 @@ FluentValidation kütüphanesi ile validasyon kuralları tanımlanır.
 ```xml
 <connectionStrings>
 	<add name="Context" 
-		 connectionString="data source=DESKTOP-213H3J8\SQLEXPRESS; 
+		 connectionString="data source=SQLConnection; 
 						   initial catalog=KampMVCDBYENİ; 
 						   integrated security=true;" 
 		 providerName="System.Data.SqlClient" />
